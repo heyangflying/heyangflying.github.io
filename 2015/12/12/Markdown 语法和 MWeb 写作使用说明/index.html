@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="Markdown 语法和 MWeb 写作使用说明Markdown 的设计哲学 Markdown 的目標是實現「易讀易寫」。不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 的語法有個主要的目的：用來作為一種網路內容的寫作用語言。">
+<meta name="description" content="Markdown 语法和 MWeb 写作使用说明Markdown 的设计哲学 Markdown 的目標是實現「易讀易寫」。不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 的語法有個主要的目的：用來作為一種網路內容的寫作用語言。     参数 说明 默认值     host 远程主机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YounG">
 <meta property="og:url" content="http://yoursite.com/2015/12/12/Markdown 语法和 MWeb 写作使用说明/index.html">
 <meta property="og:site_name" content="YounG">
-<meta property="og:description" content="Markdown 语法和 MWeb 写作使用说明Markdown 的设计哲学 Markdown 的目標是實現「易讀易寫」。不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 的語法有個主要的目的：用來作為一種網路內容的寫作用語言。">
+<meta property="og:description" content="Markdown 语法和 MWeb 写作使用说明Markdown 的设计哲学 Markdown 的目標是實現「易讀易寫」。不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 的語法有個主要的目的：用來作為一種網路內容的寫作用語言。     参数 说明 默认值     host 远程主机">
 <meta property="og:image" content="http://zh.mweb.im/asset/img/set-up-git.gif">
-<meta property="og:updated_time" content="2015-12-11T22:02:44.000Z">
+<meta property="og:updated_time" content="2017-06-20T15:19:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YounG">
-<meta name="twitter:description" content="Markdown 语法和 MWeb 写作使用说明Markdown 的设计哲学 Markdown 的目標是實現「易讀易寫」。不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 的語法有個主要的目的：用來作為一種網路內容的寫作用語言。">
+<meta name="twitter:description" content="Markdown 语法和 MWeb 写作使用说明Markdown 的设计哲学 Markdown 的目標是實現「易讀易寫」。不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 的語法有個主要的目的：用來作為一種網路內容的寫作用語言。     参数 说明 默认值     host 远程主机">
 <meta name="twitter:image" content="http://zh.mweb.im/asset/img/set-up-git.gif">
 
 
@@ -334,6 +334,52 @@
         <h1 id="Markdown-语法和-MWeb-写作使用说明"><a href="#Markdown-语法和-MWeb-写作使用说明" class="headerlink" title="Markdown 语法和 MWeb 写作使用说明"></a>Markdown 语法和 MWeb 写作使用说明</h1><h2 id="Markdown-的设计哲学"><a href="#Markdown-的设计哲学" class="headerlink" title="Markdown 的设计哲学"></a>Markdown 的设计哲学</h2><blockquote>
 <p>Markdown 的目標是實現「易讀易寫」。<br>不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。<br>Markdown 的語法有個主要的目的：用來作為一種網路內容的<em>寫作</em>用語言。</p>
 </blockquote>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td style="text-align:center">远程主机的地址</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>user</td>
+<td style="text-align:center">使用者名称</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>root</td>
+<td style="text-align:center">远程主机的根目录</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>port</td>
+<td style="text-align:center">端口</td>
+<td style="text-align:center">22</td>
+</tr>
+<tr>
+<td>delete</td>
+<td style="text-align:center">删除远程主机上的旧文件</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td>verbose</td>
+<td style="text-align:center">显示调试信息</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td>ignore_errors</td>
+<td style="text-align:center">忽略错误</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
 <a id="more"></a>
 <h2 id="本文约定"><a href="#本文约定" class="headerlink" title="本文约定"></a>本文约定</h2><p>如果有写 <code>效果如下：</code>， 在 MWeb 编辑状态下只有用 <code>CMD + R</code> 预览才可以看效果。</p>
 <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>Markdown 语法：</p>
@@ -382,7 +428,7 @@
 <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>Markdown 语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">email &lt;example@example.com&gt;</div><div class="line">[GitHub](http://github.com)</div><div class="line">自动生成连接  &lt;http://www.github.com/&gt;</div></pre></td></tr></table></figure>
 <p><code>Control + Shift + L</code> 可插入Markdown语法。<br>如果是 MWeb 的文档库中的文档，拖放或<code>CMD + Option + I</code> 导入非图片时，会生成连接。<br>效果如下：</p>
-<p>Email 连接： <a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#109;</a><br><a href="http://github.com" target="_blank" rel="external">连接标题Github网站</a><br>自动生成连接像： <a href="http://www.github.com/" target="_blank" rel="external">http://www.github.com/</a> 这样</p>
+<p>Email 连接： <a href="&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x40;&#101;&#120;&#x61;&#109;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#109;">&#x65;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x40;&#101;&#120;&#x61;&#109;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#109;</a><br><a href="http://github.com" target="_blank" rel="external">连接标题Github网站</a><br>自动生成连接像： <a href="http://www.github.com/" target="_blank" rel="external">http://www.github.com/</a> 这样</p>
 <h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><p>Markdown 语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">某某说:</div><div class="line">&gt; 第一行引用</div><div class="line">&gt; 第二行费用文字</div></pre></td></tr></table></figure>
 <p><code>CMD + Shift + B</code> 可插入Markdown语法。<br>效果如下：</p>
