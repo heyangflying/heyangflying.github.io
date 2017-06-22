@@ -538,14 +538,14 @@
 
       
         
-          
-            <h2 id="如何正确的获取webView内容的高度"><a href="#如何正确的获取webView内容的高度" class="headerlink" title="如何正确的获取webView内容的高度"></a>如何正确的获取webView内容的高度</h2><p>如图所示最底部是一个<code>scrollView</code>,<code>scrollView</code>上添加了<code>webView</code>,在<code>scrollView</code>初始化时还无法获得<code>webView</code>内容的高度,如果<code>scrollView</code>内容高度固定死了就会导致webview加载完成后显示的内容不完整或有留白的情况.<br>![“”][“\images\”]</p>
-<p>&lt; !– more – &gt;</p>
-<h3 id="合理的解决方案-kvo"><a href="#合理的解决方案-kvo" class="headerlink" title="合理的解决方案(kvo)"></a>合理的解决方案(kvo)</h3><h5 id="为webView的contentSize属性添加观察者"><a href="#为webView的contentSize属性添加观察者" class="headerlink" title="为webView的contentSize属性添加观察者:"></a>为<code>webView</code>的<code>contentSize</code>属性添加观察者:</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">self</span>.webView.scrollView addObserver:<span class="keyword">self</span> forKeyPath:@<span class="string">"contentSize"</span> options:<span class="type">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
-<h5 id="监听方法"><a href="#监听方法" class="headerlink" title="监听方法:"></a>监听方法:</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (void)observeValueForKeyPath:(<span class="type">NSString</span> *)keyPath ofObject:(id)object change:(<span class="type">NSDictionary</span>&lt;<span class="type">NSString</span> *,id&gt; *)change context:(void *)context&#123;</div><div class="line"><span class="keyword">if</span> ([keyPath isEqualToString:@<span class="string">"contentSize"</span>]) &#123;</div><div class="line"><span class="type">CGRect</span> frame = <span class="keyword">self</span>.webView.frame;</div><div class="line">frame.size = [[change objectForKey:<span class="type">NSKeyValueChangeNewKey</span>] <span class="type">CGSizeValue</span>];</div><div class="line"><span class="keyword">self</span>.webView.frame = frame;</div><div class="line"><span class="keyword">self</span>.scrollView .contentSize = <span class="type">CGSizeMake</span>(<span class="number">0</span>, <span class="type">CGRectGetMaxY</span>(<span class="keyword">self</span>.contentWebView.frame));</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="移除监听"><a href="#移除监听" class="headerlink" title="移除监听:"></a>移除监听:</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (void)dealloc</div><div class="line">&#123;</div><div class="line">[<span class="keyword">self</span>.contentWebView.scrollView removeObserver:<span class="keyword">self</span> forKeyPath:@<span class="string">"contentSize"</span> context:<span class="literal">nil</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          <h2 id="如何正确的获取webView内容的高度"><a href="#如何正确的获取webView内容的高度" class="headerlink" title="如何正确的获取webView内容的高度"></a>如何正确的获取webView内容的高度</h2><p>如图所示最底部是一个<code>scrollView</code>,<code>scrollView</code>上添加了<code>webView</code>,在<code>scrollView</code>初始化时还无法获得<code>webView</code>内容的高度,如果<code>scrollView</code>内容高度固定死了就会导致webview加载完成后显示的内容不完整或有留白的情况.<br>![“”][“\images\”]</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/04/06/如何正确的获取webView内容的高度/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
