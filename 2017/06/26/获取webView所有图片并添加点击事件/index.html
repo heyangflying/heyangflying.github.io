@@ -1,0 +1,723 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="webView,JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/hy.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="H5+原生控件开发模式已被广泛应用到APP中,特别是富文本内容的界面,大多数APP选择的是通过网页加载显示,例如:电商,新闻;H5比起原生开发出来的界面布局相对灵活多变,最重要的是可以动态改变其内容,可以做到发现错误及时更改,想改变什么内容只需编写好H5代码提交到服务器,客户端不许做任何改变,只需刷新即可实时更改,效率很高,但是H5相比原生也有一定的局限性,网络不好则会导致用户体验欠佳,所以H5+">
+<meta name="keywords" content="webView,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="获取webView所有图片并添加点击事件">
+<meta property="og:url" content="http://yoursite.com/2017/06/26/获取webView所有图片并添加点击事件/index.html">
+<meta property="og:site_name" content="YounG">
+<meta property="og:description" content="H5+原生控件开发模式已被广泛应用到APP中,特别是富文本内容的界面,大多数APP选择的是通过网页加载显示,例如:电商,新闻;H5比起原生开发出来的界面布局相对灵活多变,最重要的是可以动态改变其内容,可以做到发现错误及时更改,想改变什么内容只需编写好H5代码提交到服务器,客户端不许做任何改变,只需刷新即可实时更改,效率很高,但是H5相比原生也有一定的局限性,网络不好则会导致用户体验欠佳,所以H5+">
+<meta property="og:image" content="http://orxgohz2k.bkt.clouddn.com/webviewImg.png">
+<meta property="og:updated_time" content="2017-06-26T07:36:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="获取webView所有图片并添加点击事件">
+<meta name="twitter:description" content="H5+原生控件开发模式已被广泛应用到APP中,特别是富文本内容的界面,大多数APP选择的是通过网页加载显示,例如:电商,新闻;H5比起原生开发出来的界面布局相对灵活多变,最重要的是可以动态改变其内容,可以做到发现错误及时更改,想改变什么内容只需编写好H5代码提交到服务器,客户端不许做任何改变,只需刷新即可实时更改,效率很高,但是H5相比原生也有一定的局限性,网络不好则会导致用户体验欠佳,所以H5+">
+<meta name="twitter:image" content="http://orxgohz2k.bkt.clouddn.com/webviewImg.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/26/获取webView所有图片并添加点击事件/"/>
+
+
+
+
+
+  <title>获取webView所有图片并添加点击事件 | YounG</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YounG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">浅浅岁月拂满爱人袖</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/26/获取webView所有图片并添加点击事件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cr9.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YounG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">获取webView所有图片并添加点击事件</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-26T14:55:09+08:00">
+                2017-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOSDev/" itemprop="url" rel="index">
+                    <span itemprop="name">iOSDev</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><code>H5+原生控件</code>开发模式已被广泛应用到<code>APP</code>中,特别是富文本内容的界面,大多数<code>APP</code>选择的是通过网页加载显示,例如:电商,新闻;<code>H5</code>比起原生开发出来的界面布局相对灵活多变,最重要的是可以动态改变其内容,可以做到发现错误及时更改,想改变什么内容只需编写好<code>H5</code>代码提交到服务器,客户端不许做任何改变,只需刷新即可实时更改,效率很高,但是<code>H5</code>相比原生也有一定的局限性,网络不好则会导致用户体验欠佳,所以<code>H5+原生控件</code>开发是最好的选择!接下来说说如何获取<code>webView</code>中的所有图片并为每张图片添加点击事件,这里添加点击事件主要是放大显示图片,下图是实现整个功能的流程图:<br><img src="http://orxgohz2k.bkt.clouddn.com/webviewImg.png" alt="获取图片"><br><a id="more"></a></p>
+<h5 id="webViewDidFinishLoad-中注入js代码-获取图片-添加点击事件"><a href="#webViewDidFinishLoad-中注入js代码-获取图片-添加点击事件" class="headerlink" title="webViewDidFinishLoad:中注入js代码(获取图片;添加点击事件)"></a><code>webViewDidFinishLoad:</code>中注入js代码(获取图片;添加点击事件)</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* js方法遍历图片添加点击事件 返回图片数数组 */</span></div><div class="line"><span class="keyword">static</span>  <span class="built_in">NSString</span> * <span class="keyword">const</span> hy_getImages =</div><div class="line"><span class="string">@"function getImages()&#123;\</span></div><div class="line">var objs = document.getElementsByTagName(\"img\");\</div><div class="line">for(var i=0;i&lt;objs.length;i++)&#123;\</div><div class="line">objs[i].onclick=function()&#123;\</div><div class="line">document.location=\"hy_web:imageClick:\"+this.src;\</div><div class="line">&#125;;\</div><div class="line">&#125;;\</div><div class="line">var imageSrc = '';\</div><div class="line">for(var i=0;i&lt;objs.length;i++)&#123;\</div><div class="line">imageSrc = imageSrc + objs[i].src + '+';\</div><div class="line">&#125;;\</div><div class="line">return imageSrc;\</div><div class="line">&#125;;";</div><div class="line"></div><div class="line"><span class="comment">/* 注入js方法 */</span></div><div class="line">[webView stringByEvaluatingJavaScriptFromString:hy_getImages];</div></pre></td></tr></table></figure>
+<h5 id="执行js代码-获取图片数组及图片模型转换"><a href="#执行js代码-获取图片数组及图片模型转换" class="headerlink" title="执行js代码,获取图片数组及图片模型转换"></a>执行<code>js</code>代码,获取图片数组及图片模型转换</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 注入自定义的js方法后别忘了调用  */</span></div><div class="line"><span class="built_in">NSString</span> *resurlt = [webView stringByEvaluatingJavaScriptFromString:<span class="string">@"getImages()"</span>];</div><div class="line"><span class="built_in">NSMutableArray</span> *imgUrlArray = [<span class="built_in">NSMutableArray</span> arrayWithArray:[resurlt componentsSeparatedByString:<span class="string">@"+"</span>]];</div><div class="line"></div><div class="line"><span class="comment">/* 去掉最末尾空白 */</span></div><div class="line"><span class="keyword">if</span>(imgUrlArray.count &gt;=<span class="number">2</span>)&#123;</div><div class="line">[imgUrlArray removeLastObject];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="built_in">NSString</span> * imgStr <span class="keyword">in</span> imgUrlArray) &#123;</div><div class="line"><span class="comment">/* 创建img model */</span></div><div class="line">webImageModel *imageModel = [[webImageModel alloc]init];</div><div class="line">imageModel.bigImageUrl = imgStr;</div><div class="line"><span class="comment">/* 将url单独存放数组,方便点击图片是去除idx */</span></div><div class="line">[_webUrlArray addObject:imgStr];</div><div class="line"><span class="comment">/* 将封img model存入数组 */</span></div><div class="line">[_webBrowseItemArray addObject:imageModel];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="webView-UIWebView-webView-shouldStartLoadWithRequest-navigationType-中判断点击事件及显示大图"><a href="#webView-UIWebView-webView-shouldStartLoadWithRequest-navigationType-中判断点击事件及显示大图" class="headerlink" title="webView:(UIWebView *)webView shouldStartLoadWithRequest: navigationType:中判断点击事件及显示大图"></a><code>webView:(UIWebView *)webView shouldStartLoadWithRequest: navigationType:</code>中判断点击事件及显示大图</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 将url转换为string */</span></div><div class="line"><span class="built_in">NSString</span> *requestString = [[request URL] absoluteString];</div><div class="line"></div><div class="line"><span class="comment">/* hasPrefix 判断创建的字符串内容是否以 myweb:imageClick:开始 */</span></div><div class="line"><span class="keyword">if</span> ([requestString hasPrefix:<span class="string">@"hy_web:imageClick:"</span>]) &#123;</div><div class="line"><span class="built_in">NSString</span> *imageUrl = [requestString substringFromIndex:<span class="string">@"hy_web:imageClick:"</span>.length];</div><div class="line"></div><div class="line"><span class="comment">/* img model */</span></div><div class="line">webImageModel *imageModel = [[webImageModel alloc]init];</div><div class="line">imageModel.bigImageUrl = imageUrl;</div><div class="line"></div><div class="line"><span class="comment">/* 显示图片 */</span></div><div class="line">HYBrowseViewController *hybvc = [[HYBrowseViewController alloc]initWithBrowseItemArray:_webBrowseItemArray currentIndex:[_webUrlArray indexOfObject:imageUrl]];</div><div class="line">[hybvc show];</div><div class="line"></div><div class="line"><span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="keyword">return</span> <span class="literal">YES</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>本文部分js代码来源于网络搜索.</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webView/" rel="tag"># webView</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/13/OpenCV之图像校正/" rel="next" title="OpenCV之图像倾斜校正">
+                <i class="fa fa-chevron-left"></i> OpenCV之图像倾斜校正
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/cr9.jpg"
+               alt="hy" />
+          <p class="site-author-name" itemprop="name">hy</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#webViewDidFinishLoad-中注入js代码-获取图片-添加点击事件"><span class="nav-number">1.</span> <span class="nav-text">webViewDidFinishLoad:中注入js代码(获取图片;添加点击事件)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#执行js代码-获取图片数组及图片模型转换"><span class="nav-number">2.</span> <span class="nav-text">执行js代码,获取图片数组及图片模型转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webView-UIWebView-webView-shouldStartLoadWithRequest-navigationType-中判断点击事件及显示大图"><span class="nav-number">3.</span> <span class="nav-text">webView:(UIWebView *)webView shouldStartLoadWithRequest: navigationType:中判断点击事件及显示大图</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2014-2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hy</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
